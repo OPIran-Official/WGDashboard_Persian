@@ -136,10 +136,15 @@ SaveConfig = true
 
 ```
 $ apt update
+$ git clone https://github.com/Azumi67/WGDashboard_Persian.git
+$ cd WGDashboard_Persian
+$ mv WireguardPersian /root/
+$ cd
+$ rm -rf WGDashboard_Persian
 $ apt install git
 $ apt-get -y install python3-pip
 $ apt install gunicorn -y
-$ cd Wireguard/WireguardPersian/src
+$ cd WireguardPersian/src
 $ sudo chmod u+x wgd.sh
 $ pip install -r requirements.txt
 $ sudo ./wgd.sh install
@@ -148,6 +153,7 @@ $ ./wgd.sh start or ./wgd.sh restart
 ```
 
 - به پنل خودتون با [serverip:8080] وارد شوید. نام کاربری و رمز عبور پنل به صورت پیش فرض admin میباشد.
+- دقت کنید که داخل تنظیمات Remote endpoint را به ایپی سرور ایران در صورت تانل تغییر بدهید.
 ---------------------
 
 ![OIP2 (1)](https://github.com/Azumi67/WGDashboard/assets/119934376/da33cc90-f9f6-4772-8058-e317d9345252)

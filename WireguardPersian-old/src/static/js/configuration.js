@@ -920,16 +920,25 @@ $body.on("click", ".btn-setting-peer", function () {
         success: function (response) {
             let peer_name = ((response.name === "") ? "Untitled" : response.name);
             const formatDate = (date) => {
-                return date.getFullYear() + "-" + (date.getMonth() + 1).toString().padStart(2, '0') + "-" + date.getDate() + "T" + date.getHours().toString().padStart(2, '0') + ":" + date.getMinutes().toString().padStart(2, '0');
-            }
+                const year = date.getFullYear();
+                const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                const day = date.getDate();
+                const hours = date.getHours().toString().padStart(2, '0');
+                const minutes = date.getMinutes().toString().padStart(2, '0');
+    
+            return `${year}-${month}-${day}T${hours}:${minutes}`;
+        }
 
             $("#setting_modal .peer_name").html(peer_name);
             $("#setting_modal #peer_name_textbox").val(response.name);
+
             const peerEndTextbox = $("#setting_modal #peer_end_textbox");
             peerEndTextbox.data("end-time", response.ends_at);
             const endTime = peerEndTextbox.data("end-time");
             peerEndTextbox.val(formatDate(new Date(endTime)));
-            const bandwidthInGB = (parseFloat(response.bandwidth) / (1024 * 1024 * 1024)).toFixed(4)
+
+            const bandwidthInBytes = parseFloat(response.bandwidth);
+            const bandwidthInGB = (bandwidthInBytes / (1024 * 1024 * 1024)).toLocaleString(undefined, { minimumFractionDigits: 4 });
             $("#setting_modal #peer_bandwidth_textbox").val(bandwidthInGB);
             $("#setting_modal #peer_private_key_textbox").val(response.private_key);
             $("#setting_modal #peer_DNS_textbox").val(response.DNS);

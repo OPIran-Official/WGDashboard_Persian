@@ -1,4 +1,4 @@
-**تا اطلاع ثانوی و به دلیل اپدیت نسخه فارسی اقا ارمین، این پنل مشکل دار خواهد بود. فعلا نصب نکنید**
+**تا اطلاع ثانوی و به دلیل اپدیت نسخه فارسی اقا ارمین، نسخه WireguardPersian مشکل دار خواهد بود ولی نسخه قدیمی WireguardPersian-old کار میکند**
 
 **نسخه اول اپلود شد. نسخه دوم با ظاهری زیبا تر به زودی اپلود میشود(به نظرم صبر کنید تا اون نسخه هم اپلود شود)**
 
@@ -148,15 +148,15 @@ SaveConfig = true
 
 ```
 $ apt update
+$ apt install git
 $ git clone https://github.com/Azumi67/WGDashboard_Persian.git
 $ cd WGDashboard_Persian
-$ mv WireguardPersian /root/
+$ mv WireguardPersian-old /root/
 $ cd
 $ rm -rf WGDashboard_Persian
-$ apt install git
 $ apt-get -y install python3-pip
 $ apt install gunicorn -y
-$ cd WireguardPersian/src
+$ cd WireguardPersian-old/src
 $ sudo chmod u+x wgd.sh
 $ pip install -r requirements.txt
 $ sudo ./wgd.sh install
@@ -182,8 +182,8 @@ $ nano /etc/systemd/system/azumidash.service
 After=network.service
 
 [Service]
-WorkingDirectory=/root/WireguardPersian/src
-ExecStart=/usr/bin/python3 /root/WireguardPersian/src/dashboard.py
+WorkingDirectory=/root/WireguardPersian-old/src
+ExecStart=/usr/bin/python3 /root/WireguardPersian-old/src/dashboard.py
 Restart=always
 RestartSec=10
 

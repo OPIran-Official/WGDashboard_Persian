@@ -4,7 +4,7 @@
  * some minor parts are edited by azumi. please forgive me if it is not good
  */
 
-(function () {
+(function(){
     /* global peers */
     /* global conf_name */
 
@@ -98,19 +98,19 @@
                 let spliter = '<div class="w-100"></div>';
                 let peer_name =
                     '<div class="col-sm display" style="display: flex; align-items: center; margin-bottom: 0.2rem">' +
-                    '<h5 style="margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + (peer.name === "" ? "Untitled" : peer.name) + '</h5>' +
-                    '<h6 style="text-transform: uppercase; margin: 0; margin-left: auto !important;"><span class="dot dot-' + peer.status + '" style="margin-left: auto !important;" data-toggle="tooltip" data-placement="left" title="کاربران متصل"></span></h6>' +
+                        '<h6 style="text-transform: uppercase; margin: 0; margin-left: auto !important;"><span class="dot dot-'+peer.status+'" style="margin-right: 0px !important;" data-toggle="tooltip" data-placement="left" title="کاربر متصل است!"></span></h6>' +
+                        '<h5 style="margin: 0 0 0 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">'+ (peer.name === "" ? "Untitled" : peer.name) +'</h5>' +
                     '</div>';
-                let peer_transfer = '<div class="col-12 peer_data_group" style="text-align: right; display: flex; margin-bottom: 0.5rem"><p class="text-primary" style="text-transform: uppercase; margin-bottom: 0; margin-right: 1rem"><small><i class="bi bi-arrow-down-right"></i> ' + roundN(peer.total_receive + total_r, 4) + ' GB</small></p> <p class="text-success" style="text-transform: uppercase; margin-bottom: 0"><small><i class="bi bi-arrow-up-right"></i> ' + roundN(peer.total_sent + total_s, 4) + ' GB</small></p> </div>';
-                let peer_key = '<div class="col-sm"><small class="text-muted text-right" style="display: flex"><strong>PEER</strong><strong style="margin-left: auto!important; opacity: 0; transition: 0.2s ease-in-out" class="text-primary">کلیک تا کپی شود</strong></small> <h6><samp class="ml-auto key">' + peer.id + '</samp></h6></div>';                
-				let peer_allowed_ip = '<div class="col-sm text-right"><small class="text-muted"><strong>ایپی وایرگارد</strong></small><h6 style="text-transform: uppercase;">' + peer.allowed_ip + '</h6></div>';
-                let peer_latest_handshake = '<div class="col-sm text-right"> <small class="text-muted"><strong>اخرین ارتباط</strong></small> <h6 style="text-transform: uppercase;">' + peer.latest_handshake + '</h6> </div>';
-                let peer_endpoint = '<div class="col-sm text-right"><small class="text-muted"><strong>ایپی کاربر</strong></small><h6 style="text-transform: uppercase;">' + peer.endpoint + '</h6></div>';
-                let peer_enable = '<div class="col-sm text-right"><small class="text-muted"><strong>وضعیت</strong></small><h6 style="text-transform: uppercase;">' + (peer.end_active ? 'فعال' : 'غیرفعال') + '</h6></div>';
-                let peer_control = '<div class="col-sm text-right"><hr><div class="button-group" style="display:flex"><button type="button" class="btn btn-outline-primary btn-setting-peer btn-control" id="' + peer.id + '" data-toggle="modal"><i class="bi bi-gear-fill" data-toggle="tooltip" data-placement="bottom" title="User Setting"></i></button> <button type="button" class="btn btn-outline-danger btn-delete-peer btn-control" id="' + peer.id + '" data-toggle="modal"><i class="bi bi-x-circle-fill" data-toggle="tooltip" data-placement="bottom" title="حذف کاربر"></i></button>';
-                if (peer.private_key !== "") {
-                    peer_control += '<div class="share_peer_btn_group" style="margin-left: auto !important; display: inline"><button type="button" class="btn btn-outline-success btn-qrcode-peer btn-control" data-imgsrc="/qrcode/' + response.name + '?id=' + encodeURIComponent(peer.id) + '"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 19px;" fill="#28a745"><path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM17 17h2v2h-2zM19 19h2v2h-2zM15 19h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2z"/></svg></button><a href="/download/' + response.name + '?id=' + encodeURIComponent(peer.id) + '" class="btn btn-outline-info btn-download-peer btn-control"><i class="bi bi-download"></i></a></div>';
+                let peer_transfer = '<div class="col-12 peer_data_group" style="margin-bottom: 0.5rem; padding-right:10px"><p class="text-primary" style="text-transform: uppercase; margin-bottom: 0; margin-left:5px; float:left"><small><i class="bi bi-arrow-down-right"></i> '+ roundN(peer.total_receive + total_r, 4) +'GB</small></p> <p class="text-success" style="text-transform: uppercase; margin-bottom: 0; float:left; margin-left:15px;"><small><i class="bi bi-arrow-up-right"></i> '+ roundN(peer.total_sent + total_s, 4) +'GB</small></p> </div>';
+                let peer_key = '<div class="col-12"><small class="text-muted" style="display: flex"><strong>کلید خصوصی :</strong><strong style="margin-left: auto!important; opacity: 0; transition: 0.2s ease-in-out" class="text-primary">جهت کپی کلیک کنید</strong></small> <h6 style="float:left; text-align:left" class="col-12"><samp class="ml-auto key public_key_mobile" style=" ">'+peer.id+'</samp></h6></div>';
+                let peer_allowed_ip = '<div class="col-12"><small class="text-muted"><strong>آی پی وایرگارد کاربر :</strong></small><h6 style="float:left; text-align:left; text-transform: uppercase;" class="col-12">'+peer.allowed_ip+'</h6></div>';
+                let peer_latest_handshake = '<div class="col-12"> <small class="text-muted"><strong>آخرین اتصال :</strong></small> <h6 style="float:left; text-align:left; text-transform: uppercase;" class="col-12">'+peer.latest_handshake+'</h6> </div>';
+                let peer_endpoint = '<div class="col-12"><small class="text-muted"><strong>آی پی کاربر  :</strong></small><h6 style="float:left; text-align:left; text-transform: uppercase;" class="col-12">'+peer.endpoint+'</h6></div>';
+                let peer_control = '<div class="col-12"><hr><div class="button-group" style="display:flex"><button type="button" class="btn btn-outline-primary btn-setting-peer btn-control" id="'+peer.id+'" data-toggle="modal"><i class="bi bi-gear-fill" data-toggle="tooltip" data-placement="bottom" title="تنظیمات کاربر"></i></button> <button type="button" class="btn btn-outline-danger btn-delete-peer btn-control" id="'+peer.id+'" data-toggle="modal"><i class="bi bi-x-circle-fill" data-toggle="tooltip" data-placement="bottom" title="حذف کاربر"></i></button>';
+                if (peer.private_key !== ""){
+                    peer_control += '<div class="share_peer_btn_group" style="margin-right: auto !important; display: inline"><button type="button" class="btn btn-outline-success btn-qrcode-peer btn-control" data-imgsrc="/qrcode/'+response.name+'?id='+encodeURIComponent(peer.id)+'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 19px;" fill="#28a745"><path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM17 17h2v2h-2zM19 19h2v2h-2zM15 19h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2z"/></svg></button><a href="/download/'+response.name+'?id='+encodeURIComponent(peer.id)+'" class="btn btn-outline-info btn-download-peer btn-control"><i class="bi bi-download" data-toggle="tooltip" data-placement="bottom" title="دانلود کاربر"></i></a></div>';
                 }
+
                 peer_control += '</div>';
                 let html = '<div class="' + display_mode + '" data-id="' + peer.id + '">' +
                     '<div class="card mb-3 card-' + peer.status + '">' +
@@ -188,26 +188,26 @@
                         $("#add_peer_alert").html(response).removeClass("d-none");
                         data_list.forEach((ele) => ele.prop("disabled", false));
                         $add_peer.removeAttribute("disabled");
-                        $add_peer.innerHTML = "Save";
+                            $add_peer.innerHTML = "ذخیره کردن";
                     } else {
                         window.configurations.loadPeers("");
                         data_list.forEach((ele) => ele.prop("disabled", false));
                         $("#add_peer_form").trigger("reset");
                         $add_peer.removeAttribute("disabled");
-                        $add_peer.innerHTML = "Save";
-                        window.configurations.showToast($new_add_amount.val() + " peers added successfully!");
+                            $add_peer.innerHTML = "ذخیره کردن";
+                            window.configurations.showToast($new_add_amount.val()+" کاربر با موفقیت اضافه شد!");
                         window.configurations.addModal().toggle();
                     }
                 }
             });
         } else {
-            $("#add_peer_alert").html("Please fill in all the required information").removeClass("d-none");
+                $("#add_peer_alert").html("لطفا فیلدهای الزامی را تکمیل نمایید.").removeClass("d-none");
             $add_peer.removeAttribute("disabled");
-            $add_peer.innerHTML = "Add";
+                $add_peer.innerHTML = "اضافه کردن";
         }
     } else {
         $add_peer.removeAttribute("disabled");
-        $add_peer.innerHTML = "Add";
+            $add_peer.innerHTML = "اضافه کردن";
     }
 }
 
@@ -249,7 +249,7 @@
                     }
                     window.configurations.loadPeers($('#search_peer_textbox').val());
                     $('#alertToast').toast('show');
-                    $('#alertToast .toast-body').html("کاربر حذف شد");
+                    $('#alertToast .toast-body').html("کاربر حذف شد!");
                     $("#delete_peer").removeAttr("disabled").html("Delete");
                 }
             }
@@ -360,8 +360,8 @@
             configurationAlert(response);
             configurationHeader(response);
             configurationPeers(response);
-            $(".dot.dot-running").attr("title", "کاربر متصل شد").tooltip();
-            $(".dot.dot-stopped").attr("title", "کاربر قطع شد").tooltip();
+            $(".dot.dot-running").attr("title","کاربر متصل است").tooltip();
+            $(".dot.dot-stopped").attr("title","کاربر متصل نیست").tooltip();
             $("i[data-toggle='tooltip']").tooltip();
             endProgressBar();
             let d2 = new Date();
@@ -406,7 +406,7 @@
             configuration_timeout = interval;
             removeConfigurationInterval();
             setConfigurationInterval();
-            showToast("Refresh Interval set to " + Math.round(interval / 1000) + " seconds");
+            showToast("بروزرسانی کاربران هر "+Math.round(interval/1000)+" ثانیه");
         } else {
             $(".interval-btn-group button").removeClass("active");
             $('.interval-btn-group button[data-refresh-interval="' + configuration_timeout + '"]').addClass("active");
@@ -688,7 +688,7 @@ $add_peer.addEventListener("click", function () {
         let $new_add_keep_alive = $("#new_add_keep_alive");
         let $enable_preshare_key = $("#enable_preshare_key");
         $add_peer.setAttribute("disabled", "disabled");
-        $add_peer.innerHTML = "Adding...";
+        $add_peer.innerHTML = "اضافه کردن...";
         if ($allowed_ips.val() !== "" && $public_key.val() !== "" && $new_add_DNS.val() !== "" && $new_add_endpoint_allowed_ip.val() !== "") {
             let conf = $add_peer.getAttribute('conf_id');
             let data_list = [$private_key, $allowed_ips, $new_add_name, $new_peer_bandwidth, $new_peer_end, $new_add_DNS, $new_add_endpoint_allowed_ip, $new_add_MTU, $new_add_keep_alive];
@@ -718,22 +718,22 @@ $add_peer.addEventListener("click", function () {
                         $("#add_peer_alert").html(response).removeClass("d-none");
                         data_list.forEach((ele) => ele.removeAttr("disabled"));
                         $add_peer.removeAttribute("disabled");
-                        $add_peer.innerHTML = "Save";
+                        $add_peer.innerHTML = "ذخیره کردن";
                     } else {
                         window.configurations.loadPeers("");
                         data_list.forEach((ele) => ele.removeAttr("disabled"));
                         $("#add_peer_form").trigger("reset");
                         $add_peer.removeAttribute("disabled");
-                        $add_peer.innerHTML = "Save";
-                        window.configurations.showToast("کاربر با موفقیت اضافه شد");
+                        $add_peer.innerHTML = "ذخیره کردن";
+                        window.configurations.showToast("کاربر اضافه شد!");
                         window.configurations.addModal().toggle();
                     }
                 }
             });
         } else {
-            $("#add_peer_alert").html("Please fill in all required box.").removeClass("d-none");
+            $("#add_peer_alert").html("لطفا فیلدهای الزامی را تکمیل نمایید.").removeClass("d-none");
             $add_peer.removeAttribute("disabled");
-            $add_peer.innerHTML = "Add";
+            $add_peer.innerHTML = "اضافه کردن";
         }
     }
 });
@@ -1024,15 +1024,15 @@ $("#save_peer_setting").on("click", function () {
                     window.configurations.settingModal().toggle();
                     window.configurations.loadPeers($('#search_peer_textbox').val());
                     $('#alertToast').toast('show');
-                    $('#alertToast .toast-body').html("Peer Saved!");
+                    $('#alertToast .toast-body').html("کاربر ذخیره شد!");
                 }
-                $("#save_peer_setting").removeAttr("disabled").html("Save");
+                $("#save_peer_setting").removeAttr("disabled").html("ذخیره");
                 data_list.forEach((ele) => ele.removeAttr("disabled"));
             }
         });
     } else {
-        $("#setting_peer_alert").html("Please fill in all required box.").removeClass("d-none");
-        $("#save_peer_setting").removeAttr("disabled").html("Save");
+        $("#setting_peer_alert").html("لطفا فیلدهای الزامی را تکمیل نمایید.").removeClass("d-none");
+        $("#save_peer_setting").removeAttr("disabled").html("ذخیره");
     }
 });
 
@@ -1097,12 +1097,12 @@ $body.on("mouseenter", ".key", function () {
     let label = $(this).parent().siblings().children()[1];
     label.style.opacity = "0";
     setTimeout(function () {
-        label.innerHTML = "کلیک تا کپی شود";
+        label.innerHTML = "جهت کپی کلیک کنید";
     }, 200);
 }).on("click", ".key", function () {
     let label = $(this).parent().siblings().children()[1];
     window.configurations.copyToClipboard($(this));
-    label.innerHTML = "کپی شد";
+    label.innerHTML = "کپی شد!";
 });
 
 /**
@@ -1146,12 +1146,12 @@ $body.on("click", ".display_mode", function () {
                     Array($(".peer_list").children()).forEach(function (child) {
                         $(child).removeClass().addClass("col-12");
                     });
-                    window.configurations.showToast("Displaying as List");
+                window.configurations.showToast("نمایش بصورت لیست.");
                 } else {
                     Array($(".peer_list").children()).forEach(function (child) {
                         $(child).removeClass().addClass("col-sm-6 col-lg-4");
                     });
-                    window.configurations.showToast("Displaying as Grids");
+               window.configurations.showToast("نمایش بصورت جدول.");
                 }
             }
         }
@@ -1338,9 +1338,9 @@ $("#download_all_peers").on("click", function () {
         success: function (res) {
             if (res.peers.length > 0) {
                 window.wireguard.generateZipFiles(res);
-                window.configurations.showToast("زیپ فایل کاربران با موفقیت دانلود شد!");
+                 window.configurations.showToast("دانلود فایل Zip کاربران با موفقیت انجام شد!");
             } else {
-                window.configurations.showToast("کاربری در حال حاضر برای دانلود ندارید");
+                window.configurations.showToast("اوه! هیچ کاربر قابل دانلودی وجود ندارد.");
             }
         }
     });

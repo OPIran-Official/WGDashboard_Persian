@@ -1,66 +1,62 @@
 <div class="row">
     <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 text-right col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="sidebar-sticky pt-3 text-right">
-                <ul class="nav flex-column text-right">
-                    <li class="nav-item text-right"><a class="nav-link sb-home-url" href="/">صفحه اصلی</a></li>
-                    {% if "username" in session %}
-                        <li class="nav-item text-right"><a class="nav-link sb-settings-url" href="/settings">تنظیمات</a></li>
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link sb-home-url" href="/"><span class="dot dot-blue"></span>صفحه اصلی</a></li>
+                    
+                </ul>
+                <hr>
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span><span class="dot dot-blue"></span>گانفیگ ها :</span>
+                </h6>
+                <ul class="nav flex-column">
+                    {% for i in conf%}
+                        <li class="nav-item" style="text-align: left"><a class="nav-link sb-{{i['conf']}}-url" href="/configuration/{{i['conf']}}"><samp>{{i['conf']}}</samp></a></li>
+                    {%endfor%}
+                </ul>
+                <hr>
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span><span class="dot dot-blue"></span>ابزارها :</span>
+                </h6>
+                <ul class="nav flex-column">
+                    <ul class="nav flex-column">
+                            <li class="nav-item" style="text-align: left"><a class="nav-link" data-toggle="modal" data-target="#ping_modal" href="#">Ping</a></li>
+                        <li class="nav-item" style="text-align: left"><a class="nav-link" data-toggle="modal" data-target="#traceroute_modal" href="#">Traceroute</a></li>
+                    </ul>
+                </ul>
+                <hr>
+                
+                <ul class="nav flex-column">
+                {% if "username" in session %}
+                        <li class="nav-item"><a class="nav-link sb-settings-url" href="/settings"><span class="dot dot-blue"></span>تنظیمات</a></li>
                     {% endif %}
                     {% if session['update'] == "true" %}
-                        <li class="nav-item sb-update-li">
-                            <a class="nav-link sb-update-url" href="https://github.com/Azumi67/#-how-to-update-the-dashboard">New Update Available!<span class="dot dot-running"></span></a>
-                        </li>
+                    <li class="nav-item sb-update-li">
+                        <a class="nav-link sb-update-url"  target="blank"  href="https://github.com/donaldzou/WGDashboard#-how-to-update-the-dashboard"><span class="dot dot-running"></span>بروزرسانی جدید قرار گرفت!</a>
+                    </li>
                     {% endif %}
-                    </ul>
-                <hr>
-                   <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                   </h6>
-                   <ul class="nav flex-column">
-                   {% for i in conf %}
-                        <li class="nav-item">
-                            <a class="nav-link sb-{{ i['conf'] }}-url" href="/configuration/{{ i['conf'] }}"><samp>{{ i['conf'] }}</samp></a>
-                        </li>
-                    {% endfor %}
-                    </ul>
-                <hr>
-                <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#ping_modal" href="#">پینگ</a></li>
-             
-                    <li class="nav-item"><a class="nav-link text-right" href="/backup">نسخه پشتیبان</a></li>
-                    <li class="nav-item"><a class="nav-link text-right" data-toggle="modal" data-target="#telegram_modal" href="#">کانال تلگرام</a></li>
                 </ul>
-                <hr>
+                    
                 {% if "username" in session %}
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link text-danger text-right" href="/signout" style="font-weight: bold">خارج شدن از پنل</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="/signout" style="font-weight: bold">
+                            	<span class="dot dot-red"></span>
+                            خروج از پنل
+                            </a></li>
                     </ul>
                 {% endif %}
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a href="https://github.com/Azumi67">
-                            <small class="nav-link text-muted">{{ session['dashboard_version'] }}</small>
-                        </a>
-                    </li>
-                </ul>
+                <hr>
+                 <ul class="nav flex-column">
+                     <li class="nav-item"><a target="_blank" href="https://github.com/donaldzou/WGDashboard/releases/tag/{{ session['dashboard_version'] }}"><small class="nav-link text-muted">نسخه وایرگارد :  {{ session['dashboard_version'] }}</small></a></li>
+                 </ul>
+                 <ul class="nav flex-column">
+                     <li class="nav-item"><a target="_blank" href="https://github.com/opiran-club/opiran-wgdashboard"><small class="nav-link text-muted">نسخه قالب :  1.0.0</small></a></li>
+                 </ul>
+                 <ul class="nav flex-column">
+                     <li class="nav-item"><a target="_blank" href="https://github.com/opiran-club/opiran-wgdashboard"><small class="nav-link text-muted">فارسی سازی و توسعه : Opiran</small></a></li>
+                 </ul>
             </div>
         </nav>
-    </div>
-</div>
-
-<div class="modal fade" id="telegram_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-right">
-            <div class="modal-header text-right">
-                <h5 class="modal-title" id="staticBackdropLabel">OPIRAN Telegram Channels</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-right">
-                <a href="https://t.me/OPIranClub" target="_blank" class="btn btn-primary text-right">کانال پرسش و پاسخ</a>
-                <a href="https://t.me/opiranv2rayproxy" target="_blank" class="btn btn-primary text-right">کانال تلگرام آموزش</a>
-            </div>
-        </div>
     </div>
 </div>

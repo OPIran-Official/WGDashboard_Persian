@@ -903,54 +903,54 @@ $("#delete_peer").on("click", function () {
  * =============
  */
 
-/**
- * Handle when setting button got clicked for each peer
- */
 $body.on("click", ".btn-setting-peer", function () {
-    window.configurations.startProgressBar();
-    let peer_id = $(this).attr("id");
-    $("#save_peer_setting").attr("peer_id", peer_id);
-    $.ajax({
-        method: "POST",
-        url: "/get_peer_data/" + $("#setting_modal").attr("conf_id"),
-        headers: {
-            "Content-Type": "application/json"
-        },
-        data: JSON.stringify({"id": peer_id}),
-        success: function (response) {
-            let peer_name = ((response.name === "") ? "Untitled" : response.name);
-            const formatDate = (date) => {
-                const year = date.getFullYear();
-                const month = (date.getMonth() + 1).toString().padStart(2, '0');
-                const day = date.getDate();
-                const hours = date.getHours().toString().padStart(2, '0');
-                const minutes = date.getMinutes().toString().padStart(2, '0');
+  window.configurations.startProgressBar();
+  let peer_id = $(this).attr("id");
+  $("#save_peer_setting").attr("peer_id", peer_id);
+  $.ajax({
+    method: "POST",
+    url: "/get_peer_data/" + $("#setting_modal").attr("conf_id"),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    data: JSON.stringify({ "id": peer_id }),
+    success: handleSuccess
+  });
+
+  function handleSuccess(response) {
+    let peer_name = response.name === "" ? "Untitled" : response.name;
     
-            return `${year}-${month}-${day}T${hours}:${minutes}`;
-        }
+    const formatDate = (date) => {
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+      const day = date.getDate();
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
 
-            $("#setting_modal .peer_name").html(peer_name);
-            $("#setting_modal #peer_name_textbox").val(response.name);
+      return `${year}-${month}-${day}T${hours}:${minutes}`;
+    };
 
-            const peerEndTextbox = $("#setting_modal #peer_end_textbox");
-            peerEndTextbox.data("end-time", response.ends_at);
-            const endTime = peerEndTextbox.data("end-time");
-            peerEndTextbox.val(formatDate(new Date(endTime)));
+    $("#setting_modal .peer_name").html(peer_name);
+    $("#setting_modal #peer_name_textbox").val(response.name);
 
-            const bandwidthInBytes = parseFloat(response.bandwidth);
-            const bandwidthInGB = (bandwidthInBytes / (1024 * 1024 * 1024)).toLocaleString(undefined, { minimumFractionDigits: 4 });
-            $("#setting_modal #peer_bandwidth_textbox").val(bandwidthInGB);
-            $("#setting_modal #peer_private_key_textbox").val(response.private_key);
-            $("#setting_modal #peer_DNS_textbox").val(response.DNS);
-            $("#setting_modal #peer_allowed_ip_textbox").val(response.allowed_ip);
-            $("#setting_modal #peer_endpoint_allowed_ips").val(response.endpoint_allowed_ip);
-            $("#setting_modal #peer_mtu").val(response.mtu);
-            $("#setting_modal #peer_keep_alive").val(response.keep_alive);
-            $("#setting_modal #peer_preshared_key_textbox").val(response.preshared_key);
-            window.configurations.settingModal().toggle();
-            window.configurations.endProgressBar();
-        }
-    });
+    const peerEndTextbox = $("#setting_modal #peer_end_textbox");
+    peerEndTextbox.data("end-time", response.ends_at);
+    const endTime = peerEndTextbox.data("end-time");
+    peerEndTextbox.val(formatDate(new Date(endTime)));
+
+    const bandwidthInBytes = parseFloat(response.bandwidth);
+    const bandwidthInGB = (bandwidthInBytes / (1024 * 1024 * 1024)).toLocaleString(undefined, { minimumFractionDigits: 4 });
+    $("#setting_modal #peer_bandwidth_textbox").val(bandwidthInGB);
+    $("#setting_modal #peer_private_key_textbox").val(response.private_key);
+    $("#setting_modal #peer_DNS_textbox").val(response.DNS);
+    $("#setting_modal #peer_allowed_ip_textbox").val(response.allowed_ip);
+    $("#setting_modal #peer_endpoint_allowed_ips").val(response.endpoint_allowed_ip);
+    $("#setting_modal #peer_mtu").val(response.mtu);
+    $("#setting_modal #peer_keep_alive").val(response.keep_alive);
+    $("#setting_modal #peer_preshared_key_textbox").val(response.preshared_key);
+    window.configurations.settingModal().toggle();
+    window.configurations.endProgressBar();
+  }
 });
 
 /**

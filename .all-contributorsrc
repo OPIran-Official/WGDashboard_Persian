@@ -51,7 +51,7 @@
         "code"
       ]
     },
-	  {
+    {
       "login": "amir",
       "name": "AMIR",
       "avatar_url": "none",
@@ -59,7 +59,7 @@
       "contributions": [
       "code-edit"
       ]
-    ]
+     ]
 
   "contributorsPerLine": 7,
   "projectName": "WGDashboard",

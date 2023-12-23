@@ -17,7 +17,7 @@
 - Inspired By Mr Amir Coding : [AMIR](https://t.me/flalo )
 - Persian HTML V2 Author : [Armin](https://github.com/A3is)
 - Script & Bug fixes : [Opiran](https://github.com/opiran-club)
-- Codes Edited & Modified By me : [Azumi](https://github.com/Azumi67)
+- Codes Edited & Modified By me & Bug fixes : [Azumi](https://github.com/Azumi67)
 - **I really appreciate Mr Amir who allowed me to be inspired by his coding, Opiran for his support and advice and Mr Armin for his beautiful work. Thank you**
 -----------------
 

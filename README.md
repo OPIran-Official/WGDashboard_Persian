@@ -8,7 +8,7 @@
 
 - **کدهای اصلی (حجم و زمان) این پنل برای اقا امیر میباشد و توسط من تا جای ممکن تغییر داده شده است**
 - **اگر پنل حرفه ای با اپدیت های متوالی میخواهید، حتما به ایشون پیام بدید . ایدی تلگرام ایشون : https://t.me/flalo  و ادرس ترون ایشون : TNxMRj6Q1wfFrZAJ7xwsjrwpiFyFpthvYd**
-- لطفا اگر دنبال پنل بهتر هستید به ایدی ایشون مراجعه کنید و از ایشون حمایت کنید. از ایشون حمایت کنید انگاری که از من حمایت کردید. مرسی
+- لطفا از ایشان حمایت کنید.
 
 -----------------------------
 ![con](https://github.com/Azumi67/WGDashboard_Persian/assets/119934376/edd17574-bdb9-4eed-9c1b-64eac3eab189)**Contributors**
@@ -256,9 +256,7 @@ wget "https://raw.githubusercontent.com/hawshemi/Linux-Optimizer/main/linux-opti
 
 
 
-- کد های امیر اقا ( در صورت پنل حرفه ای میتوانید ایدی ایشان را از من بگیرید و با خودشون حرف برنید)
-
-
+- ![R (9)](https://github.com/Azumi67/FRP-V2ray-Loadbalance/assets/119934376/33388f7b-f1ab-4847-9e9b-e8b39d75deaa)[سورس AMIR](https://t.me/flalo )
 
 ![R (9)](https://github.com/Azumi67/FRP-V2ray-Loadbalance/assets/119934376/33388f7b-f1ab-4847-9e9b-e8b39d75deaa) [سورس Wgdashboard](https://github.com/donaldzou/WGDashboard)
 

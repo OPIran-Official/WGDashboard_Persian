@@ -55,7 +55,7 @@
 
 -------------------
 ![R (a2)](https://github.com/Azumi67/WGDashboard/assets/119934376/10caabad-bd5f-4e8f-8e86-82cf3c3f5e24)
-**نصب پنل از طریق اسکریپت** [Tested on Ubuntu 18]
+**نصب پنل از طریق اسکریپت** [Tested on Ubuntu 18] - **اسکریپت تا اطلاع ثانوی که تستش کنم، برداشته شد.
 
 - شما میتوانید از طریق اسکریپت، این پنل را نصب کنید
 - دقت نمایید که نام اینترفیس شما به درستی وارد شود. با دستور ip a میتوانید بررسی نمایید. معمولا با eth و یا ens شروع میشود.
@@ -66,7 +66,7 @@
 - زحمت این اسکریپت را [Opiran](https://github.com/opiran-club) کشیده اند.
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/WGDashboard_Persian/main/install.sh --ipv4)
+soon
 ```
 
 --------------

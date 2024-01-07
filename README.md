@@ -21,6 +21,9 @@
 - **I really appreciate Mr Amir who allowed me to be inspired by his coding, Opiran for his support and advice and Mr Armin for his beautiful work. Thank you**
 -----------------
 
+![Exclamation-Mark-PNG-Clipart](https://github.com/Azumi67/WGDashboard_Persian/assets/119934376/dcec8178-d246-4c8d-a306-adb28860dc26)**نکته**
+- برای استفاده از available ip (ایپی های موجود ) در پنل ایپی 6 وایرگارد را در اینترفیس پاک کنید. اینطوری شما میتوانید از این قابلیت هم استفاده کنید.
+------------
 
 **توضیح کوتاه در مورد این پروژه :**
 - این پنل اپدیت نخواهد شد و بیشتر برای یادگیری خودم میباشد. 

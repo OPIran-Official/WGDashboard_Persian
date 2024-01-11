@@ -92,7 +92,7 @@
 - در اخر میتوانید سرور خود را ریبوت کنید.
 - پورت پنل و ایپی ورودی به شما باید نمایش داده شود.
 ```
-bash <(curl -s https://raw.githubusercontent.com/Azumi67/WGDashboard_Persian/main/INSTALL.sh --ipv4)
+bash <(curl -s https://raw.githubusercontent.com/Azumi67/WGDashboard_Persian/main/install.sh --ipv4)
 ```
 
   </details>

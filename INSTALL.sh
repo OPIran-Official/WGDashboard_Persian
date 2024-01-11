@@ -283,7 +283,7 @@ download_wireguard_panel() {
         rm -rf "$FOLDER_NAME"
     fi
 
-    svn export https://github.com/Azumi67/WGDashboard_Persian/trunk/"$FOLDER_NAME"
+    git clone https://github.com/Azumi67/WGDashboard_Persian.git "$FOLDER_NAME"
 }
 
 install_start_wireguard_panel() {
@@ -291,10 +291,11 @@ install_start_wireguard_panel() {
     echo -e "${GREEN}Installing and starting WireGuard panel...${NC}"
 
     PANEL_DIR="WireguardPersian"
-    SRC_DIR="/root/WireguardPersian/src/"
+    SRC_DIR="/root/WireguardPersian/WireguardPersian/src/"
     WGD_SCRIPT="$SRC_DIR/wgd.sh"
     REQUIREMENTS_FILE="$SRC_DIR/requirements.txt"
 
+    
     if [ ! -d "$PANEL_DIR" ]; then
         echo -e "${RED}Error: WireGuard panel directory not found. Please run download_wireguard_panel first.${NC}"
         exit 1
